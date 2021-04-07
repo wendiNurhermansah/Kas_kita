@@ -57,7 +57,7 @@ class AnggotaController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'jenis_kelamin'     => 'required',
-            'no_hp'    => 'required|numeric|max:12',
+            'no_hp'    => 'required|max:12',
 
         ]);
         $nama = $request->nama;
@@ -116,7 +116,7 @@ class AnggotaController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'jenis_kelamin'     => 'required',
-            'no_hp'    => 'required|unique|max:12',
+            'no_hp'    => 'required|max:12',
 
         ]);
 

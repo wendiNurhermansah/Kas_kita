@@ -129,6 +129,16 @@
         @yield('content')
     </div>
     <!--/#app -->
+    <footer class="black accent-3 relative nav-sticky" style="height: 50px;">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col text-center">
+                   <p>@Copyright (c) 2021 Wendi Nurhermansah</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <script type="text/javascript">
         var APP_URL = {!! json_encode(url('/').'/') !!}

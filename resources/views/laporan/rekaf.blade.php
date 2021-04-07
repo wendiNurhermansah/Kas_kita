@@ -29,20 +29,28 @@
                                 <h4 id="formTitle">Laporan Rekafitulasi</h4><hr>
                                 <div class="form-row form-inline">
                                     <div class="col-md-3">
-                                        <div class="form-group mt-3">
-                                            <label for="tanggal" class="col-form-label s-12 col-md-2"><strong><b> Dari</b></strong></label>
-                                            <input type="date" name="tanggaldari" id="tanggal" class="form-control r-0 light s-12 col-md-6" placeholder="" autocomplete="off" required/>
-                                        </div>
+                                        <div class="form-group mt-4">
+                                            <label for="tahun">Tahun</label>
+                                            <select class="custom-select" name="tahun">
+                                                @for ($i = 2021; $i <= 2030; $i++)
+                                                <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                          </div>
                                     </div>
                                     <div class="col-md-3 ml-2">
-                                        <div class="form-group mt-3 ">
-                                            <label for="tanggal" class="col-form-label s-12 col-md-2"><strong><b>Sampai</b></strong></label>
-                                            <input type="date" name="tanggalsampai" id="tanggal" class="form-control r-0 light s-12 col-md-6" placeholder="" autocomplete="off" required/>
-                                        </div>
+                                        <div class="form-group mt-4">
+                                            <label for="bulan">Bulan</label>
+                                            <select class="form-control" id="exampleFormControlSelect1" name="bulan">
+                                                @foreach ($namaBulan as $k=> $item)
+                                                <option value="{{$k+1}}">{{$item}}</option>
+                                                @endforeach
+                                            </select>
+                                          </div>
                                     </div>
 
                                 </div>
-                                <div class="mt-5" style="margin-left: 20%">
+                                <div class="mt-5" style="margin-left: 15%">
                                     <button type="submit" class="btn btn-primary btn-sm" id="action"><i class="icon-print mr-2"></i>Cetak PDF<span id="txtAction"></span></button>
                                 </div>
                             </form>

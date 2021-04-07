@@ -8,7 +8,7 @@
             <div class="row p-t-b-10 ">
                 <div class="col">
                     <h4>
-                        <i class="icon-box"></i>
+                        <i class="icon-dashboard"></i>
                         Dashboard
                     </h4>
                 </div>

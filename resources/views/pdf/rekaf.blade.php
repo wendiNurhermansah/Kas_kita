@@ -17,19 +17,16 @@
         \Carbon\Carbon::setLocale('id');
       @endphp
     <div class="container">
-        <h4 style="text-align: center;">Laporan Rekafitulasi Kas</h4>
-        <h5 style="text-align: center;">Periode : {{\Carbon\Carbon::parse($tanggal)->isoFormat('dddd, D MMMM Y')}} s/d {{\Carbon\Carbon::parse($tanggal2)->isoFormat('dddd, D MMMM Y')}}</h5>
+        <h4 style="text-align: center;">Laporan Rekafitulasi Kas Bulanan</h4>
+        <h5 style="text-align: center;">Periode : Bulan {{$m}} , Tahun {{$y}}</h5>
         <hr>
 
         <table class="table mt-5">
             <thead class="thead-light">
               <tr>
                 <th scope="col">No</th>
-                <th scope="col">Nama</th>
                 <th scope="col">Tanggal</th>
-                <th scope="col">Keterangan Masuk</th>
                 <th scope="col">Kas Masuk</th>
-                <th scope="col">Keterangan Keluar</th>
                 <th scope="col">Kas Keluar</th>
 
               </tr>
@@ -38,22 +35,17 @@
 
             </thead>
             <tbody>
-                @php
+            @php
                 $a=1;
-
             @endphp
-             @foreach ($data as $i)
+             @for ($i = 0; $i < count($serie); $i++)
               <tr>
-
-                  <th scope="row">{{$a++}}</th>
-                  <td>{{$i->tmanggota_id}}</td>
-                  <td>{{$i->tanggal}}</td>
-                  <td>{{$i->keterangan}}</td>
-                  <td>{{number_format($i->nominal)}}</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              @endforeach
+               <th scope="row">{{$a++}}</th>
+               <td>{{$serie[$i]['label']}}</td>
+               <td>{{number_format($serie[$i]['kas_masuk'])}}</td>
+               <td>{{number_format($serie[$i]['kas_keluar'])}}</td>
+              </tr>
+              @endfor
 
 
 
@@ -63,10 +55,9 @@
 
             </tbody>
             <tfoot class="thead-light">
-                <th colspan="4" style="text-align: center;">Total</th>
-                <th><span>{{number_format($total)}}</span></th>
-                <th></th>
-                <th><span>{{number_format($total1)}}</span></th>
+                <th colspan="2" style="text-align: center;">Total</th>
+                <th>{{number_format($subtotal_kasMasuk)}}</th>
+                <th>{{number_format($subtotal_kasKeluar)}}</th>
             </tfoot>
           </table>
 
